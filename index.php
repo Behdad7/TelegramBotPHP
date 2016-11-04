@@ -19,14 +19,14 @@ $text = $telegram->Text();
 $chat_id = $telegram->ChatID();
 // Check if the text is a command
 if(!is_null($text) && !is_null($chat_id)){
-	if ($text == "/test") {
+	if ($text == "/start") {
 		if ($telegram->messageFromGroup()) {
 			$reply = "Chat Group";
 		} else {
 			$reply = "لطفا اگر تمایل دارید به عنوان پاسخ دهنده در بوت ثبت نام کنید. در غیر این صورت سوال دارم را انتخاب کنید.";
 		}
 	        // Create option for the custom keyboard. Array of array string
-	        $option = array( array("سوال دارم", "پاسخگو میشوم"), array("راهنمای", "ارتباط با ما") );
+	        $option = array( array("سوال دارم:raising_hand:", "🕵 پاسخگو میشوم"), array("راهنمای", "ارتباط با ما:raising_hand::busts_in_silhouette:") );
 	        // Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $reply);
