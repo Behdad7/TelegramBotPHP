@@ -32,7 +32,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
-	if ($text == "پاسخگو میشوم") {
+	if ($text == "🕵 پاسخگو میشوم") {
 	    $reply = "*bold text* _italic text_ [text](http://www.example.com/) `inline fixed-width code` ```text pre-formatted fixed-width code block ```"; 
 		// Build the reply array
 	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
