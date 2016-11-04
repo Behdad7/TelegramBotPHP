@@ -32,7 +32,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
-	if ($text == "/git") {
+	if ($text == "پاسخگو میشوم") {
 	    $reply = "Check me on GitHub: https://github.com/Eleirbag89/TelegramBotPHP";
 	    // Build the reply array
 	    $content = array('chat_id' => $chat_id, 'text' => $reply);
