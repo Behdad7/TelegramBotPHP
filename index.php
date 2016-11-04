@@ -66,6 +66,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
 	}
+	$callback_query = $telegram->Callback_Query();
 	if ($callback_query !== null && $callback_query != "") {
 	    $reply = "Callback data value: ".$telegram->Callback_Data();
 	    $testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "Edit callback query text", 'message_id'=> $callback_query["message"]["message_id"]));
