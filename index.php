@@ -26,7 +26,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$reply = "لطفا اگر تمایل دارید به عنوان پاسخ دهنده در بوت ثبت نام کنید. در غیر این صورت سوال دارم را انتخاب کنید.";
 		}
 	        // Create option for the custom keyboard. Array of array string
-	        $option = array( array("🙋سوال دارم", "🕵 پاسخگو میشوم"), array("👥راهنمای", "ارتباط با ما📃") );
+	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("راهنمای", "👥 ارتباط با ما 📃") );
 	        // Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $reply);
