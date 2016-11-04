@@ -54,6 +54,11 @@ if(!is_null($text) && !is_null($chat_id)){
 	    // Send the Catania's coordinate
 	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
 	    $telegram->sendLocation($content);
+		
+		$option = array( array( $telegram->buildInlineKeyboardButton("Test", $url="http://google.it"), $telegram->buildInlineKeyboardButton($text="Test2","","Callback","") ) );
+		$keyb = $telegram->buildInlineKeyBoard($option);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Welcome to Bot !");
+		$telegram->sendMessage($content);
 	}
 }
 ?>
