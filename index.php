@@ -57,10 +57,10 @@ if(!is_null($text) && !is_null($chat_id)){
 		
 		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
 				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")) );
+				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
+				array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
+				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")) );
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
