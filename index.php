@@ -50,14 +50,14 @@ if(!is_null($text) && !is_null($chat_id)){
 	    $telegram->downloadFile($file["file_path"], "./test_download.png");
 	}
 	
-	if ($text == "/where") {
-	    // Send the Catania's coordinate
+	if ($text == "🙋 سوال دارم") {
+	    /* Send the Catania's coordinate
 	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
-	    $telegram->sendLocation($content);
+	    $telegram->sendLocation($content);*/
 		
-		$option = array( array( $telegram->buildInlineKeyboardButton("Test", $url="http://google.it"), $telegram->buildInlineKeyboardButton($text="Test2","","Callback","") ) );
+		$option = array( array( $telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh",""), $telegram->buildInlineKeyboardButton($text="مشاوره کمک آموزشی","","tahsili","") ) );
 		$keyb = $telegram->buildInlineKeyBoard($option);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "Welcome to Bot !");
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
 	}
 }
