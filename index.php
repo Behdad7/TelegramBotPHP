@@ -26,16 +26,16 @@ if(!is_null($text) && !is_null($chat_id)){
 			$reply = "لطفا اگر تمایل دارید به عنوان پاسخ دهنده در بوت ثبت نام کنید. در غیر این صورت سوال دارم را انتخاب کنید.";
 		}
 	        // Create option for the custom keyboard. Array of array string
-	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("راهنمای", "👥 ارتباط با ما 📃") );
+	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "👥 ارتباط با ما") );
 	        // Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
 	if ($text == "پاسخگو میشوم") {
-	    $reply = "Check me on GitHub: https://github.com/Eleirbag89/TelegramBotPHP";
-	    // Build the reply array
-	    $content = array('chat_id' => $chat_id, 'text' => $reply);
+	    $reply = "*bold text* _italic text_ [text](http://www.example.com/) `inline fixed-width code` ```text pre-formatted fixed-width code block ```"; 
+		// Build the reply array
+	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
 	    $telegram->sendMessage($content);
 	}
 	
