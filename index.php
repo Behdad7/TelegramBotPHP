@@ -55,7 +55,12 @@ if(!is_null($text) && !is_null($chat_id)){
 	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
 	    $telegram->sendLocation($content);*/
 		
-		$option = array( $telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh",""), $telegram->buildInlineKeyboardButton($text="مشاوره کمک آموزشی","","tahsili","") );
+		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")) );
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
