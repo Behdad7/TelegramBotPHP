@@ -84,7 +84,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		array($telegram->buildInlineKeyboardButton("بعدی","","next",""))  );
    		$keyb = $telegram->buildInlineKeyBoard($option);
 
-	    $testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id" , 'reply_markup' => $keyb));
+	    $testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
 	    
 	    /*$reply = "Callback data value: ".$telegram->Callback_Data();
 	    $reply = $reply . json_encode($testEdit);
