@@ -63,7 +63,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
 			        array($telegram->buildInlineKeyboardButton("بیشتر","","more","mo","re"))  );
 		$keyb = $telegram->buildInlineKeyBoard($option);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید");
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #1");
 		$telegram->sendMessage($content);
 	}
  
@@ -73,7 +73,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	$callback_query = $telegram->Callback_Query();
 	if ($callback_query !== null && $callback_query != "") {
 	  
-	    $testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "ادامه لیست..", 'message_id'=> $callback_query["message"]["message_id"]));
+	    $testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #2", 'message_id'=> $callback_query["message"]["message_id"]));
 	   
 		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
 		array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
