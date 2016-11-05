@@ -70,7 +70,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	
 
 }	// && $callback_query != ""
-
+	$callback_query = $telegram->Callback_Query();
 	if ($callback_query !== null) {
 	    $reply = "Callback data value: ".$telegram->Callback_Data();
 	    $testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "Edit callback query text", 'message_id'=> $callback_query["message"]["message_id"]));
