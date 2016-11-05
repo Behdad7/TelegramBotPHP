@@ -80,6 +80,6 @@ if(!is_null($text) && !is_null($chat_id)){
 
 	    $content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
 	    $telegram->answerCallbackQuery($content);   
-				//			}
+							}
 
 ?>
