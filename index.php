@@ -71,7 +71,7 @@ if(!is_null($text) && !is_null($chat_id)){
 
 }	
 
-if ($callback_query !== null && $callback_query != "") {
+//if ($callback_query !== null && $callback_query != "") {
 	    $reply = "Callback data value: ".$telegram->Callback_Data();
 	    $testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "Edit callback query text", 'message_id'=> $callback_query["message"]["message_id"]));
 	    $reply = $reply . json_encode($testEdit);
@@ -80,6 +80,6 @@ if ($callback_query !== null && $callback_query != "") {
 
 	    $content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
 	    $telegram->answerCallbackQuery($content);   
-							}
+				//			}
 
 ?>
