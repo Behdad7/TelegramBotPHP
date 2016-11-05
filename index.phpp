@@ -89,10 +89,10 @@ if(!is_null($text) && !is_null($chat_id)){
 	/*    $reply = "Callback data value: ".json_encode($telegram->Callback_Query());
 	    $reply = $reply ;//. json_encode($testEdit);
 	    $content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$reply);
-	    $telegram->sendMessage($content);*/
+	    $telegram->sendMessage($content);
 
 	    $content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
-	    $telegram->answerCallbackQuery($content);   
+	    $telegram->answerCallbackQuery($content);   */
 							}
 
 ?>
