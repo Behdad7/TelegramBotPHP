@@ -35,7 +35,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	if ($text == "🕵 پاسخگو میشوم") {
 	     $reply = "*مدارک مورد نیاز* \n_1.تصویر مدرک تحصیلی یا حوزوی مرتبط\n2.شماره شبا جهت واریز مبلغ کارکرد\n3.شماره تماس متصل به تلگرام\n4.پذیرش تعهد نامه کاری_"; 
 		// Build the reply array
-	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply."Mohammad");
+	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
 	    $telegram->sendMessage($content);
 	}
 	
@@ -86,13 +86,13 @@ if(!is_null($text) && !is_null($chat_id)){
 		
 		$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
     
-	/*    $reply = "Callback data value: ".json_encode($telegram->Callback_Query());
+	    $reply = "Callback data value: ".json_encode($telegram->Callback_Query());
 	    $reply = $reply ;//. json_encode($testEdit);
-	    $content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$reply);
+	    $content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$reply.$callback_query);
 	    $telegram->sendMessage($content);
 
 	    $content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
-	    $telegram->answerCallbackQuery($content);   */
+	    $telegram->answerCallbackQuery($content);   
 							}
 
 ?>
