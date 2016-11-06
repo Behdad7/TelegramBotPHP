@@ -69,7 +69,10 @@ if(!is_null($text) && !is_null($chat_id)){
 	}
 	
 	else {
-		
+		$option = array(array($telegram->buildInlineKeyboardButton("ادامه میدهم", "","beconteniue",""),array($telegram->buildInlineKeyboardButton("پایان و ثبت شود","","saveend","")) );
+		$keyb = $telegram->buildInlineKeyBoard($option);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "سوال شما ثبت گردید در صورت ادامه روی ادامه میدهم کلیک کنید در غیرین صورت پایان و ثبت شود را انتخاب کنید");
+		$telegram->sendMessage($content);
 	}
  
 	
