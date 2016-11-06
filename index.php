@@ -17,6 +17,7 @@ $telegram = new Telegram($bot_id);
 // Take text and chat_id from the message
 $text = $telegram->Text();
 $chat_id = $telegram->ChatID();
+$callback_query = $telegram->Callback_Query();
 // Check if the text is a command
 if(!is_null($text) && !is_null($chat_id)){
 	if ($text == "/start") {
@@ -32,14 +33,14 @@ if(!is_null($text) && !is_null($chat_id)){
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
-	if ($text == "🕵 پاسخگو میشوم") {
+	else if ($text == "🕵 پاسخگو میشوم") {
 	     $reply = "*مدارک مورد نیاز* \n_1.تصویر مدرک تحصیلی یا حوزوی مرتبط\n2.شماره شبا جهت واریز مبلغ کارکرد\n3.شماره تماس متصل به تلگرام\n4.پذیرش تعهد نامه کاری_"; 
 		// Build the reply array
 	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
 	    $telegram->sendMessage($content);
 	}
 	
-	if ($text == "/img") {
+	else if ($text == "/img") {
 	    // Load a local file to upload. If is already on Telegram's Servers just pass the resource id
 	    $img = curl_file_create('test.png','image/png'); 
 	    $content = array('chat_id' => $chat_id, 'photo' => $img );
@@ -50,7 +51,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	    $telegram->downloadFile($file["file_path"], "./test_download.png");
 	}
 	
-	if ($text == "🙋 سوال دارم") {
+	else if ($text == "🙋 سوال دارم") {
 	    /* Send the Catania's coordinate
 	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
 	    $telegram->sendLocation($content);*/
@@ -63,14 +64,18 @@ if(!is_null($text) && !is_null($chat_id)){
 				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
 			        array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  );
 		$keyb = $telegram->buildInlineKeyBoard($option);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید");
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
+	}
+	
+	else {
+		
 	}
  
 	
 
 }	 
-	$callback_query = $telegram->Callback_Query();
+	
 	if ($callback_query !== null && $callback_query != "") {
 		
 		if ($callback_query['data']=="more"){
@@ -113,7 +118,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		
 		if ($callback_query['data']=="com"){
 			
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"لطفاً سوال خود را تایپ کنید یا بوسیله ویز اقدام به ظبط کنید" );
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"لطفاً سوال خود را تایپ کنید یا بوسیله ویز اقدام به ضبط کنید" );
 			$telegram->sendMessage($content);
 			
 			
