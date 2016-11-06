@@ -111,7 +111,16 @@ if(!is_null($text) && !is_null($chat_id)){
 
 		}
 		
-		
+		if ($callback_query['data']=="com"){
+			
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"لطفاً سوال خود را تایپ کنید یا بوسیله ویز اقدام به ظبط کنید" );
+			$telegram->sendMessage($content);
+			
+			
+			
+			
+			
+		}
 		
 		$content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
 		$telegram->answerCallbackQuery($content);   
