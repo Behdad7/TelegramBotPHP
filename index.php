@@ -72,27 +72,29 @@ if(!is_null($text) && !is_null($chat_id)){
 }	 
 	$callback_query = $telegram->Callback_Query();
 	if ($callback_query !== null && $callback_query != "") {
-	  
-	//    $testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #2", 'message_id'=> $callback_query["message"]["message_id"]));
-	   
-		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
-		array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-		array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
-		array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
-		array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
-		array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
-		array($telegram->buildInlineKeyboardButton("بعدی","","next",""))  );
-   		$keyb = $telegram->buildInlineKeyBoard($option);
 		
-		$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
-    
-	    $reply = "Callback data value: ".json_encode($telegram->Callback_Query());
-	    $reply = $reply ;//. json_encode($testEdit);
-	    $content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$reply . $callback_query['chat_instance']);
-	    $telegram->sendMessage($content);
+		if ($callback_query['data']=="more"){
 
-	    $content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
-	    $telegram->answerCallbackQuery($content);   
-							}
+			$testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #2", 'message_id'=> $callback_query["message"]["message_id"]));
+
+			$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
+			array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
+			array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
+			array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
+			array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
+			array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
+			array($telegram->buildInlineKeyboardButton("بعدی","","next",""))  );
+			$keyb = $telegram->buildInlineKeyBoard($option);
+
+			$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
+
+			$reply = "Callback data value: ".json_encode($telegram->Callback_Query());
+			$reply = $reply . json_encode($testEdit);
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$reply );
+			$telegram->sendMessage($content);
+		}
+		$content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
+		$telegram->answerCallbackQuery($content);   
+	}
 
 ?>
