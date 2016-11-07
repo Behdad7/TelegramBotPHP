@@ -45,7 +45,6 @@ if(!is_null($text) && !is_null($chat_id)){
 				array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
 				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
 				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
-			    array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  
 				array($telegram->buildInlineKeyboardButton("مکانیک", "","machine","")),
 				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","electronic","")),
 				array($telegram->buildInlineKeyboardButton("ریاضی","","math","")),
