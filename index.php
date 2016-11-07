@@ -1,4 +1,4 @@
- 
+﻿ 
 <?php
 /**
  * Telegram Bot example.
@@ -39,20 +39,20 @@ if(!is_null($text) && !is_null($chat_id)){
 	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
 	    $telegram->sendMessage($content);
 		
-		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
-				array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
-				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
-				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
-				array($telegram->buildInlineKeyboardButton("مکانیک", "","machine","")),
-				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","electronic","")),
-				array($telegram->buildInlineKeyboardButton("ریاضی","","math","")),
-				array($telegram->buildInlineKeyboardButton("فیزیک","","physic","")),
-				array($telegram->buildInlineKeyboardButton("شیمی","","chemistry","")),
-				array($telegram->buildInlineKeyboardButton("کشاورزی","","agri","")));
+		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","reghoghogh","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","regtahsili","")),
+				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","regcom","")),
+				array($telegram->buildInlineKeyboardButton("آشپزی","","regchef","")),
+				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","reghealt","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","regteacher","")),
+				array($telegram->buildInlineKeyboardButton("مکانیک", "","regmachine","")),
+				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","regelectronic","")),
+				array($telegram->buildInlineKeyboardButton("ریاضی","","regmath","")),
+				array($telegram->buildInlineKeyboardButton("فیزیک","","regphysic","")),
+				array($telegram->buildInlineKeyboardButton("شیمی","","regchemistry","")),
+				array($telegram->buildInlineKeyboardButton("کشاورزی","","regagri","")));
 		$keyb = $telegram->buildInlineKeyBoard($option);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به توانایی شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
 		
 		
