@@ -24,19 +24,19 @@ if(!is_null($text) && !is_null($chat_id)){
 		if ($telegram->messageFromGroup()) {
 			$reply = "Chat Group";
 		} else {
-			$reply = "` لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید.`";
+			$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
 		}
 	        // Create option for the custom keyboard. Array of array string
 	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "👥 ارتباط با ما") );
 	        // Get the keyboard
-		$keyb = $telegram->buildKeyBoard($option, $onetime=false, $resize=true, $selective=true);
-		$content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'reply_markup' => $keyb, 'text' => $reply);
+		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
 	else if ($text == "🕵 پاسخگو میشوم" || $text == "/rega") {
-	     $reply = "*مدارک مورد نیاز* \n_1.تصویر مدرک تحصیلی یا حوزوی مرتبط\n2.شماره شبا جهت واریز مبلغ کارکرد\n3.شماره تماس متصل به تلگرام\n4.پذیرش تعهد نامه کاری_"; 
+	     $reply = "<b>مدارک مورد نیاز</b> \n1.تصویر مدرک تحصیلی یا حوزوی مرتبط\n2.شماره شبا جهت واریز مبلغ کارکرد\n3.شماره تماس متصل به تلگرام\n4.پذیرش تعهد نامه کاری "; 
 		// Build the reply array
-	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
+	    $content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'text' => $reply);
 	    $telegram->sendMessage($content);
 		
 		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","reghoghogh","")),
