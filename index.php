@@ -38,6 +38,29 @@ if(!is_null($text) && !is_null($chat_id)){
 		// Build the reply array
 	    $content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'text' => $reply);
 	    $telegram->sendMessage($content);
+		
+		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
+				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
+				array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
+				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
+			    array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  
+				array($telegram->buildInlineKeyboardButton("مکانیک", "","machine","")),
+				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","electronic","")),
+				array($telegram->buildInlineKeyboardButton("ریاضی","","math","")),
+				array($telegram->buildInlineKeyboardButton("فیزیک","","physic","")),
+				array($telegram->buildInlineKeyboardButton("شیمی","","chemistry","")),
+				array($telegram->buildInlineKeyboardButton("کشاورزی","","agri","")));
+		$keyb = $telegram->buildInlineKeyBoard($option);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
+		$telegram->sendMessage($content);
+		
+		
+		
+		
+		
+		
 	}
 	
 	else if ($text == "/img") {
