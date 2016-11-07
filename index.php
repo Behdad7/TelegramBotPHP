@@ -29,7 +29,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	        // Create option for the custom keyboard. Array of array string
 	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "👥 ارتباط با ما") );
 	        // Get the keyboard
-		$keyb = $telegram->buildKeyBoard($option);
+		$keyb = $telegram->buildKeyBoard($option, $onetime=false, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'Markdown', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
