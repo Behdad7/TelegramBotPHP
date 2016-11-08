@@ -157,7 +157,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		}
 		
 		
-		if (strpos($callback_query['data'],"sinaQA")){
+		if (strpos($callback_query['data'],"sinaQA") || 1 ){
 			
 			$post = [
 				'idUser' =>  $telegram->Callback_ChatID(),
