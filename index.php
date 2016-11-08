@@ -173,7 +173,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 				
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>substr( $callback_query['data'],6)."test" .strpos($callback_query['data'],"sinaqa") .$server_output );
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>substr( $callback_query['data'],6)."test" .strpos($callback_query['data'],"inaqa") .$server_output );
 			$telegram->sendMessage($content);
 			
 		}
