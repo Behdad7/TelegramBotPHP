@@ -137,9 +137,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		
 		if (strpos($callback_query['data'],"reg")){
 			
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"لطفاً سوال خود را تایپ کنید یا بوسیله ویز اقدام به ضبط کنید" );
-			$telegram->sendMessage($content);
-			
+
 			$post = [
 				'idUser' =>  $telegram->Callback_ChatID(),
 				'Cat' => $callback_query['data'],
@@ -154,7 +152,9 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 				
-				
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" .json_encode($post ));
+			$telegram->sendMessage($content);
+			
 			
 			
 			
