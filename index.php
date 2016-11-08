@@ -104,7 +104,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			// receive server response ...
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			
-			$server_output = json_decode(curl_exec ($ch));
+			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 						$content = array('chat_id' => '233135729', 'text' =>$server_output['Items']['id'] . "ایدی کاربر\n" . $server_output  );
 						$telegram->sendMessage($content);
