@@ -141,7 +141,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$post = [
 				'idUser' =>  $telegram->Callback_ChatID(),
 				'Cat' => $callback_query['data'],
-				'first_name' => $callback_query['first_name']
+				'first_name' => "Mohammad"
 			];
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/addsina.php");
@@ -152,7 +152,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 				
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>""    .$callback_query['first_name'] .json_encode($telegram->Callback_Query()));
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>""    .$callback_query['from']['first_name'] );
 			$telegram->sendMessage($content);
 			
 			
