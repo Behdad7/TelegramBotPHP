@@ -80,7 +80,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
 				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
 				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
-			        array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  );
+			        array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
@@ -127,7 +127,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
 			array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
 			array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
-			array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  );
+			array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
 			
 			$keyb = $telegram->buildInlineKeyBoard($option);
 
