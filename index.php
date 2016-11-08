@@ -105,7 +105,8 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
-		
+								$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$server_output );
+						$telegram->sendMessage($content);
 		if (strpos( $server_output,"id_sina")){
 						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ایدی سینا" );
 						$telegram->sendMessage($content);
