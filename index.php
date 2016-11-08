@@ -103,7 +103,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			$server_output = array();
+			
 			$server_output = json_decode(curl_exec ($ch));
 			curl_close ($ch);
 
