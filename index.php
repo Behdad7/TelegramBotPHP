@@ -107,7 +107,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_close ($ch);
 
 		if (strpos( $server_output,"id_sina")){
-						$content = array('chat_id' => server_output['Items']['id'], 'text' => "ایدی سینا \n " . $chat_id . $server_output );
+						$content = array('chat_id' => $server_output['Items']['id'], 'text' => $server_output['Items']['id']."ایدی سینا \n " . $chat_id . $server_output );
 						$telegram->sendMessage($content);
 				}			
 				else{
