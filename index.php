@@ -139,9 +139,9 @@ if(!is_null($text) && !is_null($chat_id)){
 			
 
 			$post = [
-				'idUser' =>  2,
-				'Cat' =>2,
-				'first_name' => "Mohammad"
+				'idUser' =>  $telegram->Callback_ChatID(),
+				'Cat' => $callback_query['data'],
+				'first_name' =>  $callback_query['from']['first_name']
 			];
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/addsina.php");
