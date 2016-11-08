@@ -107,7 +107,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			array($telegram->buildInlineKeyboardButton("فیزیک","","sinaQAphysic","")),
 			array($telegram->buildInlineKeyboardButton("شیمی","","sinaQAchemistry","")),
 			array($telegram->buildInlineKeyboardButton("کشاورزی","","sinaQAagri","")),
-			array($telegram->buildInlineKeyboardButton("◀ برگشت ","","sinaQAback",""))  );
+			array($telegram->buildInlineKeyboardButton("◀ برگشت ","","back",""))  );
 			$keyb = $telegram->buildInlineKeyBoard($option);
 
 			$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
