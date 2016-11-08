@@ -39,18 +39,18 @@ if(!is_null($text) && !is_null($chat_id)){
 	    $content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'text' => $reply);
 	    $telegram->sendMessage($content);
 		
-		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","reghoghogh","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","regtahsili","")),
-				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","regcom","")),
-				array($telegram->buildInlineKeyboardButton("آشپزی","","regchef","")),
-				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","reghealt","")),
-				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","regteacher","")),
-				array($telegram->buildInlineKeyboardButton("مکانیک", "","regmachine","")),
-				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","regelectronic","")),
-				array($telegram->buildInlineKeyboardButton("ریاضی","","regmath","")),
-				array($telegram->buildInlineKeyboardButton("فیزیک","","regphysic","")),
-				array($telegram->buildInlineKeyboardButton("شیمی","","regchemistry","")),
-				array($telegram->buildInlineKeyboardButton("کشاورزی","","regagri","")));
+		$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinareghoghogh","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaregtahsili","")),
+				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaregcom","")),
+				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaregchef","")),
+				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinareghealt","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaregteacher","")),
+				array($telegram->buildInlineKeyboardButton("مکانیک", "","sinaregmachine","")),
+				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","sinaregelectronic","")),
+				array($telegram->buildInlineKeyboardButton("ریاضی","","sinaregmath","")),
+				array($telegram->buildInlineKeyboardButton("فیزیک","","sinaregphysic","")),
+				array($telegram->buildInlineKeyboardButton("شیمی","","sinaregchemistry","")),
+				array($telegram->buildInlineKeyboardButton("کشاورزی","","sinaregagri","")));
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به توانایی شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
@@ -92,8 +92,6 @@ if(!is_null($text) && !is_null($chat_id)){
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "سوال شما ثبت گردید در صورت ادامه روی ادامه میدهم کلیک کنید در غیرین صورت پایان و ثبت شود را انتخاب کنید");
 		$telegram->sendMessage($content);
 	}
- 
-	
 
 }	 
 	
@@ -137,12 +135,26 @@ if(!is_null($text) && !is_null($chat_id)){
 
 		}
 		
-		if ($callback_query['data']=="com"){
+		if (strpos($callback_query['data'],"reg"){
 			
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"لطفاً سوال خود را تایپ کنید یا بوسیله ویز اقدام به ضبط کنید" );
 			$telegram->sendMessage($content);
 			
-			
+			$post = [
+				'idUser' =>  $telegram->Callback_ChatID(),
+				'Cat' => $callback_query['data'],
+				'first_name' => $callback_query['first_name']
+			];
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/addsina.php");
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
+			// receive server response ...
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$server_output = curl_exec ($ch);
+			curl_close ($ch);
+				
+				
 			
 			
 			
