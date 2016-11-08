@@ -112,7 +112,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				}			
 				else{
 					
-						$content = array('chat_id' => server_output['Items']['id'], 'text' => "ایدی کاربر\n" . $server_output  );
+						$content = array('chat_id' => $chat_id, 'text' => "ایدی کاربر\n" . $server_output  );
 						$telegram->sendMessage($content);
 					
 					
