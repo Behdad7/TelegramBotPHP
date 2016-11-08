@@ -103,16 +103,17 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			$server_output = curl_exec ($ch);
+			$server_output = array();
+			$server_output = json_decode(curl_exec ($ch),true);
 			curl_close ($ch);
 
 		if (strpos( $server_output,"id_sina")){
-						$content = array('chat_id' => '63345217', 'text' => $server_output['Items']['id']."ایدی سینا \n " . $chat_id . $server_output );
+						$content = array('chat_id' => $server_output["Items"]["id"], 'text' => $server_output['Items']['id']."ایدی سینا \n " . $chat_id . $server_output );
 						$telegram->sendMessage($content);
 				}			
 				else{
 					
-						$content = array('chat_id' => '233135729', 'text' => "ایدی کاربر\n" . $server_output  );
+						$content = array('chat_id' => '233135729', 'text' =>$server_output["Items"]["id"]. "ایدی کاربر\n" . $server_output  );
 						$telegram->sendMessage($content);
 					
 					
