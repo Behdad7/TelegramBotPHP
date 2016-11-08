@@ -94,7 +94,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		
 			
 			$post = [
-				'idUser' =>  $telegram->Callback_ChatID(),
+				'idUser' =>  $telegram->$chat_id
 
 			];
 			$ch = curl_init();
