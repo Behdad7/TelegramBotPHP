@@ -108,9 +108,9 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_close ($ch);
 			
 			$json = $server_output;
-			$result = json_decode ($json);
+			$result = json_decode ($json,true);
 		
-						$content = array('chat_id' => '233135729', 'text' =>$result[1]['id'] . "ایدی کاربر\n" . $result  );
+						$content = array('chat_id' => '233135729', 'text' =>$result['Items'][id] . "ایدی کاربر\n" . $result  );
 						$telegram->sendMessage($content);
 		if (strpos( $server_output,"id_sina")){
 						$content = array('chat_id' => $server_output['Items']['id'], 'text' => $server_output->Items."ایدی سینا \n " . $chat_id . $server_output );
