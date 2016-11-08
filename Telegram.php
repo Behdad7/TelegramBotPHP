@@ -1203,6 +1203,9 @@ class Telegram {
     public function Callback_ID() {
         return $this->data["callback_query"]["id"];
     }
+    public function Callback_FirstName() {
+        return $this->data["callback_query"]["first_name"];
+    }
 
     /// Get the Get the data of the current callback
     /**

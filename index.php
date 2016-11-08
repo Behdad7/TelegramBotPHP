@@ -152,7 +152,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 				
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" .json_encode($telegram->Callback_Query()));
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>""  $telegram->Callback_FirstName()  .$callback_query['first_name'] .json_encode($telegram->Callback_Query()));
 			$telegram->sendMessage($content);
 			
 			
