@@ -74,13 +74,13 @@ if(!is_null($text) && !is_null($chat_id)){
 	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
 	    $telegram->sendLocation($content);*/
 		
-				$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
-				array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
-				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
-				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
-			        array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  );
+				$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinaQAhoghogh","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaQAtahsili","")),
+				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
+				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
+				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
+			        array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="sinaQAmore",""))  );
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
@@ -101,13 +101,13 @@ if(!is_null($text) && !is_null($chat_id)){
 
 			//$testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #2", 'message_id'=> $callback_query["message"]["message_id"]));
 
-			$option = array(array($telegram->buildInlineKeyboardButton("مکانیک", "","machine","")),
-			array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","electronic","")),
-			array($telegram->buildInlineKeyboardButton("ریاضی","","math","")),
-			array($telegram->buildInlineKeyboardButton("فیزیک","","physic","")),
-			array($telegram->buildInlineKeyboardButton("شیمی","","chemistry","")),
-			array($telegram->buildInlineKeyboardButton("کشاورزی","","agri","")),
-			array($telegram->buildInlineKeyboardButton("◀ برگشت ","","back",""))  );
+			$option = array(array($telegram->buildInlineKeyboardButton("مکانیک", "","sinaQAmachine","")),
+			array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","sinaQAelectronic","")),
+			array($telegram->buildInlineKeyboardButton("ریاضی","","sinaQAmath","")),
+			array($telegram->buildInlineKeyboardButton("فیزیک","","sinaQAphysic","")),
+			array($telegram->buildInlineKeyboardButton("شیمی","","sinaQAchemistry","")),
+			array($telegram->buildInlineKeyboardButton("کشاورزی","","sinaQAagri","")),
+			array($telegram->buildInlineKeyboardButton("◀ برگشت ","","sinaQAback",""))  );
 			$keyb = $telegram->buildInlineKeyBoard($option);
 
 			$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
@@ -121,12 +121,12 @@ if(!is_null($text) && !is_null($chat_id)){
 
 			//$testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #1", 'message_id'=> $callback_query["message"]["message_id"]));
 
-			$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","hoghogh","")),
-			array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","tahsili","")),
-			array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","com","")),
-			array($telegram->buildInlineKeyboardButton("آشپزی","","chef","")),
-			array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","healt","")),
-			array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","teacher","")),
+			$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinaQAhoghogh","")),
+			array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaQAtahsili","")),
+			array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
+			array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
+			array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
+			array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
 			array($telegram->buildInlineKeyboardButton("..بیشتر","",$callback_data="more",""))  );
 			
 			$keyb = $telegram->buildInlineKeyBoard($option);
@@ -137,7 +137,6 @@ if(!is_null($text) && !is_null($chat_id)){
 		
 		if (strpos($callback_query['data'],"reg")){
 			
-
 			$post = [
 				'idUser' =>  $telegram->Callback_ChatID(),
 				'Cat' => $callback_query['data'],
@@ -155,10 +154,32 @@ if(!is_null($text) && !is_null($chat_id)){
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>""    .$callback_query['from']['first_name'] );
 			$telegram->sendMessage($content);
 			
+		}
+		
+		
+		if (strpos($callback_query['data'],"sinaQA")){
 			
-			
+			$post = [
+				'idUser' =>  $telegram->Callback_ChatID(),
+				'Cat' =>substr( $callback_query['data'],6),
+				'first_name' =>  $callback_query['from']['first_name']
+			];
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/get_sina.php");
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
+			// receive server response ...
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$server_output = curl_exec ($ch);
+			curl_close ($ch);
+				
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>""  .$server_output );
+			$telegram->sendMessage($content);
 			
 		}
+				
+		
+		
 		
 		$content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
 		$telegram->answerCallbackQuery($content);   
