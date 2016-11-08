@@ -170,7 +170,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			$server_output = curl_exec ($ch);
+			$server_output = json_encode(curl_exec ($ch));
 			curl_close ($ch);
 				if ($server_output['success']=="0"){
 						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "فعلا پاسخگویی پیدا نشد. یک باد دیگر سعی کنید" );
