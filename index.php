@@ -178,7 +178,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				}			
 				else{
 					
-						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "تا برقراری ارتباط منتظر بمانید" );
+						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "تا برقراری ارتباط منتظر بمانید" .$server_output['success']);
 						$telegram->sendMessage($content);
 					
 					
