@@ -87,10 +87,37 @@ if(!is_null($text) && !is_null($chat_id)){
 	}
 	
 	else {
-		$option = array(array($telegram->buildInlineKeyboardButton("ادامه میدهم", "","beconteniue",""),$telegram->buildInlineKeyboardButton("پایان و ثبت شود","","saveend","")) );
+		/*$option = array(array($telegram->buildInlineKeyboardButton("ادامه میدهم", "","beconteniue",""),$telegram->buildInlineKeyboardButton("پایان و ثبت شود","","saveend","")) );
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "سوال شما ثبت گردید در صورت ادامه روی ادامه میدهم کلیک کنید در غیرین صورت پایان و ثبت شود را انتخاب کنید");
-		$telegram->sendMessage($content);
+		$telegram->sendMessage($content);*/
+		
+			
+			$post = [
+				'idUser' =>  $telegram->Callback_ChatID(),
+
+			];
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/send_msg.php");
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
+			// receive server response ...
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$server_output = curl_exec ($ch);
+			curl_close ($ch);
+		
+		if (strpos( $server_output,"id_sina")){
+						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ایدی سینا" );
+						$telegram->sendMessage($content);
+				}			
+				else{
+					
+						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ایدی کاربر" . $server_output  );
+						$telegram->sendMessage($content);
+					
+					
+				}
+		
 	}
 
 }	 
