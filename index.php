@@ -135,7 +135,7 @@ if(!is_null($text) && !is_null($chat_id)){
 
 		}
 		
-		if (strpos($callback_query['data'],"reg"){
+		if (strpos($callback_query['data'],"reg")){
 			
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"لطفاً سوال خود را تایپ کنید یا بوسیله ویز اقدام به ضبط کنید" );
 			$telegram->sendMessage($content);
