@@ -86,6 +86,23 @@ if(!is_null($text) && !is_null($chat_id)){
 		$telegram->sendMessage($content);
 	}
 	
+	else if ($text == "👥 پنل کاربری" ) {
+	    /* Send the Catania's coordinate
+	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
+	    $telegram->sendLocation($content);*/
+		
+				$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinaQAhoghogh","")),
+				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaQAtahsili","")),
+				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
+				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
+				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
+			        array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
+		$keyb = $telegram->buildInlineKeyBoard($option);
+		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
+		$telegram->sendMessage($content);
+	}
+		
 	else {
 		/*$option = array(array($telegram->buildInlineKeyboardButton("ادامه میدهم", "","beconteniue",""),$telegram->buildInlineKeyboardButton("پایان و ثبت شود","","saveend","")) );
 		$keyb = $telegram->buildInlineKeyBoard($option);
