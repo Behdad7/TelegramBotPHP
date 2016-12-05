@@ -87,10 +87,8 @@ if(!is_null($text) && !is_null($chat_id)){
 	}
 	
 	else if ($text == "👥 پنل کاربری" ) {
-	    /* Send the Catania's coordinate
-	    $content = array('chat_id' => $chat_id, 'latitude' => "37.5", 'longitude' => "15.1" );
-	    $telegram->sendLocation($content);*/
-		
+
+	
 				$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinaQAhoghogh","")),
 				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaQAtahsili","")),
 				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
