@@ -110,7 +110,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$content = array('chat_id' => $server_output, 'text' => $text  );
 			$telegram->sendMessage($content);
 
-			if (strpos( $server_output,"id_sina")){
+		/*	if (strpos( $server_output,"id_sina")){
 	
 			$json = $server_output;
 			$result = var_dump(json_decode($json, true));
@@ -132,7 +132,7 @@ if(!is_null($text) && !is_null($chat_id)){
 					
 				}
 		
-	}
+	}*/
 
 }	 
 }
