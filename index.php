@@ -135,6 +135,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	}
 
 }	 
+}
 	
 	if ($callback_query !== null && $callback_query != "") {
 		
