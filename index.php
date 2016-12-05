@@ -127,7 +127,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				else{
 					
 						$content = array('chat_id' => '233135729', 'text' =>$server_output['Items']['id'] . "2ایدی کاربر\n'" . $server_output." ' " . $obj  );
-						//$telegram->sendMessage($content);
+						$telegram->sendMessage($content);
 					
 					
 				}
