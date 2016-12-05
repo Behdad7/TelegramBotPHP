@@ -116,16 +116,17 @@ if(!is_null($text) && !is_null($chat_id)){
 			$result = var_dump(json_decode($json, true));
 			$obj = json_decode( $server_output);
 
-						$content = array('chat_id' => '233135729', 'text' => $obj->{'id'} . "ایدی کاربر\n" . $result  );
-						$telegram->sendMessage($content);
-		if (strpos( $server_output,"id_sina")){
+			$content = array('chat_id' => '233135729', 'text' => $obj->{'id'} . "1ایدی کاربر\n" . $result  );
+			$telegram->sendMessage($content);
+			
+			if (strpos( $server_output,"id_sina")){
 
 						$content = array('chat_id' => $server_output['Items']['id'], 'text' => $server_output->Items."ایدی سینا \n " . $chat_id . $server_output );
 						$telegram->sendMessage($content);
 				}			
 				else{
 					
-						$content = array('chat_id' => '233135729', 'text' =>$server_output['Items']['id'] . "ایدی کاربر\n" . $server_output  );
+						$content = array('chat_id' => '233135729', 'text' =>$server_output['Items']['id'] . "2ایدی کاربر\n'" . $server_output." ' " . $obj  );
 						//$telegram->sendMessage($content);
 					
 					
