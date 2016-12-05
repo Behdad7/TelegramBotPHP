@@ -207,7 +207,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				}			
 				else{
 					
-						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "تا برقراری ارتباط منتظر بمانید" . $server_output  );
+						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ارتباط بقرار هست لطفاً سوال خود را بنویسید." . $server_output  );
 						$telegram->sendMessage($content);
 					
 					
