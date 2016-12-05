@@ -193,7 +193,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 				
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>""    .$callback_query['from']['first_name'] );
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
 			$telegram->sendMessage($content);
 			
 		}
@@ -220,7 +220,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				}			
 				else{
 					
-						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ارتباط بقرار هست لطفاً سوال خود را بنویسید." . $server_output  );
+						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ارتباط برقرار هست لطفاً سوال خود را بنویسید." . $server_output  );
 						$telegram->sendMessage($content);
 					
 					
