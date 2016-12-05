@@ -27,7 +27,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
 		}
 	        // Create option for the custom keyboard. Array of array string
-	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "👥 ارتباط با ما") );
+	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "👥 پنل کاربری") );
 	        // Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
