@@ -27,7 +27,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
 		}
 	        // Create option for the custom keyboard. Array of array string
-	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "👥 پنل کاربری") );
+	        $option = array( array("🙋 سوال دارم", "🕵 پاسخگو میشوم"), array("📃 راهنمای", "💻 پنل کاربری") );
 	        // Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
@@ -44,7 +44,7 @@ if(!is_null($text) && !is_null($chat_id)){
 				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaregcom","")),
 				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaregchef","")),
 				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinareghealt","")),
-				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaregteacher","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا ششم","","sinaregteacher","")),
 				array($telegram->buildInlineKeyboardButton("مکانیک", "","sinaregmachine","")),
 				array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","sinaregelectronic","")),
 				array($telegram->buildInlineKeyboardButton("ریاضی","","sinaregmath","")),
@@ -79,25 +79,22 @@ if(!is_null($text) && !is_null($chat_id)){
 				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
 				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
 				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
-				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
+				array($telegram->buildInlineKeyboardButton("معلم پایه تا ششم","","sinaQAteacher","")),
 			        array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
 	}
 	
-	else if ($text == "👥 پنل کاربری" ) {
+	else if ($text == "💻 پنل کاربری" ) {
 
+		$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
 	
-				$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinaQAhoghogh","")),
-				array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaQAtahsili","")),
-				array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
-				array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
-				array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
-				array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
-			        array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
-		$keyb = $telegram->buildInlineKeyBoard($option);
-		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به سوال شما نزدیکتر می باشد را انتخاب کنید");
+		// Create option for the custom keyboard. Array of array string
+		$option = array( array("🙋 منوی اصلی", "❌ لغو ارتباط فعلی"));
+		// Get the keyboard
+		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
 		
@@ -183,7 +180,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
 			array($telegram->buildInlineKeyboardButton("آشپزی","","sinaQAchef","")),
 			array($telegram->buildInlineKeyboardButton("بهداشت و درمان","","sinaQAhealt","")),
-			array($telegram->buildInlineKeyboardButton("معلم پایه تا شیشم","","sinaQAteacher","")),
+			array($telegram->buildInlineKeyboardButton("معلم پایه تا ششم","","sinaQAteacher","")),
 			array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
 			
 			$keyb = $telegram->buildInlineKeyBoard($option);
