@@ -97,7 +97,23 @@ if(!is_null($text) && !is_null($chat_id)){
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
 	}
-		
+	
+	else if ($text == "❌ لغو ارتباط فعلی" || $text == "/laghv") {
+		$post = [
+				'idUser' => $chat_id
+
+			];
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/laghv.php");
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
+			// receive server response ...
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			
+			$server_output = curl_exec ($ch);
+			curl_close ($ch);
+	
+	}
 	else {
 		/*$option = array(array($telegram->buildInlineKeyboardButton("ادامه میدهم", "","beconteniue",""),$telegram->buildInlineKeyboardButton("پایان و ثبت شود","","saveend","")) );
 		$keyb = $telegram->buildInlineKeyBoard($option);
