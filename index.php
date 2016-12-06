@@ -20,7 +20,7 @@ $chat_id = $telegram->ChatID();
 $callback_query = $telegram->Callback_Query();
 // Check if the text is a command
 if(!is_null($text) && !is_null($chat_id)){
-	if ($text == "/start") {
+	if ($text == "/start" || $text == "🖱 منوی اصلی") {
 		if ($telegram->messageFromGroup()) {
 			$reply = "Chat Group";
 		} else {
@@ -91,7 +91,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
 	
 		// Create option for the custom keyboard. Array of array string
-		$option = array( array("🙋 منوی اصلی", "❌ لغو ارتباط فعلی"));
+		$option = array( array("🖱 منوی اصلی", "❌ لغو ارتباط فعلی"));
 		// Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
