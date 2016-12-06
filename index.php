@@ -229,19 +229,11 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
-				if (strpos( $server_output,"No items found")){
-						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "فعلا پاسخگویی پیدا نشد. یک باد دیگر سعی کنید" );
-						$telegram->sendMessage($content);
-				}			
-				else{
-					
-						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => "ارتباط برقرار هست لطفاً سوال خود را بنویسید." . $server_output  );
-						$telegram->sendMessage($content);
-					
-					
-				}
+
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => $server_output  );
+			$telegram->sendMessage($content);
+
 		}
-				
 
 		$content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
 		$telegram->answerCallbackQuery($content);   
