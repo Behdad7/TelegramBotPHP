@@ -88,6 +88,18 @@ if(!is_null($text) && !is_null($chat_id)){
 	
 	else if ($text == "💻 پنل کاربری" ) {
 
+		$reply = " ";
+	
+		// Create option for the custom keyboard. Array of array string
+		$option = array( array("❌ لغو ارتباط فعلی" , "🖱 منوی اصلی"));
+		// Get the keyboard
+		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
+		$telegram->sendMessage($content);
+	}
+	
+	else if ($text == "💻 پنل سینا" ) {
+
 		$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
 	
 		// Create option for the custom keyboard. Array of array string
@@ -220,8 +232,15 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
-				
+			
+			
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
+			$telegram->sendMessage($content);
+			
+			$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"));
+		// Get the keyboard
+			$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+			$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
 			$telegram->sendMessage($content);
 			
 		}
