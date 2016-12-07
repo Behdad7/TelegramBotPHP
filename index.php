@@ -240,7 +240,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"));
 		// Get the keyboard
 			$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-			$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" $reply);
+			$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" . $reply);
 			$telegram->sendMessage($content);
 			
 		}
