@@ -238,13 +238,13 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 			
-			
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
 			$telegram->sendMessage($content);
-			
 
-		
-		}
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"💻 پنل سینا");
+			$telegram->sendMessage($content);
+			
+			}
 		
 		if (strpos($callback_query['data'],"inaQA") ){
 			
