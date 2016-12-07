@@ -234,17 +234,16 @@ if(!is_null($text) && !is_null($chat_id)){
 			curl_close ($ch);
 			
 			
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
-			$telegram->sendMessage($content);
+		//	$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
+		//	$telegram->sendMessage($content);
 			
 			$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"));
 		// Get the keyboard
 			$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-			$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" . $reply);
+			$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" );
 			$telegram->sendMessage($content);
-			
-		}
 		
+		}
 		
 		if (strpos($callback_query['data'],"inaQA") ){
 			
