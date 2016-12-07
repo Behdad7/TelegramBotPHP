@@ -54,13 +54,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به توانایی شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
-	
-		
-			$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"));
-		// Get the keyboard
-			$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-			$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" );
-			$telegram->sendMessage($content);
+
 	}
 	
 	else if ($text == "/img") {
@@ -105,14 +99,13 @@ if(!is_null($text) && !is_null($chat_id)){
 	
 	else if ($text == "💻 پنل سینا" ) {
 
-		$reply = " لطفا اگر توانایی و تخصص دارید به عنوان 🕵 پاسخگو میشوم(/rega) در اٍبن سینا ثبت نام کنید. در غیر این صورت  🙋 سوال دارم(/haveq) را انتخاب کنید. ";
-	
-		// Create option for the custom keyboard. Array of array string
-		$option = array( array("❌ لغو ارتباط فعلی" , "🖱 منوی اصلی"));
-		// Get the keyboard
+		$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"), array("🔴 وضعیت آنلاین/آفلاین"));
+	// Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
+		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" );
 		$telegram->sendMessage($content);
+	
+		
 	}
 	
 	else if ($text == "❌ لغو ارتباط فعلی" || $text == "/laghv") {
@@ -238,7 +231,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
 			
-			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
+			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output );
 			$telegram->sendMessage($content);
 
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"💻 پنل سینا");
