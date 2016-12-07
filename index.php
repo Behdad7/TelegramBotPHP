@@ -88,7 +88,7 @@ if(!is_null($text) && !is_null($chat_id)){
 	
 	else if ($text == "💻 پنل کاربری" ) {
 
-		$reply = " ";
+		$reply = " .";
 	
 		// Create option for the custom keyboard. Array of array string
 		$option = array( array("❌ لغو ارتباط فعلی" , "🖱 منوی اصلی"));
