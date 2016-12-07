@@ -218,6 +218,14 @@ if(!is_null($text) && !is_null($chat_id)){
 		}
 		
 		if (strpos($callback_query['data'],"reg")){
+						$reply = "در صورت تمایل ❌ لغو ارتباط فعلی انتخاب کنید";
+	
+		// Create option for the custom keyboard. Array of array string
+		$option = array( array("❌ لغو ارتباط فعلی" , "🖱 منوی اصلی"));
+		// Get the keyboard
+		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
+		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
+		$telegram->sendMessage($content);
 			
 			$post = [
 				'idUser' =>  $telegram->Callback_ChatID(),
@@ -237,15 +245,7 @@ if(!is_null($text) && !is_null($chat_id)){
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output  .$callback_query['from']['first_name'] );
 			$telegram->sendMessage($content);
 			
-			$reply = "در صورت تمایل ❌ لغو ارتباط فعلی انتخاب کنید";
-	
-		// Create option for the custom keyboard. Array of array string
-		$option = array( array("❌ لغو ارتباط فعلی" , "🖱 منوی اصلی"));
-		// Get the keyboard
-		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
-		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
-		$telegram->sendMessage($content);
-			
+
 		//	$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"));
 		// Get the keyboard
 		//	$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
