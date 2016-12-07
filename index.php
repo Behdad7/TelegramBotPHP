@@ -104,10 +104,24 @@ if(!is_null($text) && !is_null($chat_id)){
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' =>"منوی سیناگو" );
 		$telegram->sendMessage($content);
-	
+			
+	}
+	else if ($text == "🔴 وضعیت آنلاین/آفلاین" ) {
+		$post = [
+				'idUser' => $chat_id
+
+			];
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/sina_online.php");
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
+			// receive server response ...
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			
+			$server_output = curl_exec ($ch);
+			curl_close ($ch);
 		
 	}
-	
 	else if ($text == "❌ لغو ارتباط فعلی" || $text == "/laghv") {
 		$post = [
 				'idUser' => $chat_id
