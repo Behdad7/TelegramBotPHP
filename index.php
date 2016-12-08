@@ -95,7 +95,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
-	}aa	
+	
 	else if ($text == "💻 پنل سینا" ) {
 
 		$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"), array("🔴 وضعیت آنلاین/آفلاین"));
