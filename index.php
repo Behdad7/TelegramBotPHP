@@ -95,8 +95,7 @@ if(!is_null($text) && !is_null($chat_id)){
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
 		$content = array('chat_id' => $chat_id,'parse_mode'=>'HTML', 'reply_markup' => $keyb, 'text' => $reply);
 		$telegram->sendMessage($content);
-	}
-	
+	}aa	
 	else if ($text == "💻 پنل سینا" ) {
 
 		$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"), array("🔴 وضعیت آنلاین/آفلاین"));
@@ -120,6 +119,9 @@ if(!is_null($text) && !is_null($chat_id)){
 			
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
+		
+						$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => $server_output  );
+			$telegram->sendMessage($content);
 		
 	}
 	else if ($text == "❌ لغو ارتباط فعلی" || $text == "/laghv") {
