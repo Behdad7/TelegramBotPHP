@@ -1,4 +1,4 @@
- 
+
 <?php
 /**
  * Telegram Bot example.
@@ -54,7 +54,6 @@ if(!is_null($text) && !is_null($chat_id)){
 		$keyb = $telegram->buildInlineKeyBoard($option);
 		$content = array('chat_id' => $chat_id, 'reply_markup' => $keyb, 'text' => "از لیست زیر لطفاً رسته ای که به توانایی شما نزدیکتر می باشد را انتخاب کنید");
 		$telegram->sendMessage($content);
-
 	}
 	
 	else if ($text == "/img") {
@@ -86,7 +85,6 @@ if(!is_null($text) && !is_null($chat_id)){
 	}
 	
 	else if ($text == "💻 پنل کاربری" ) {
-
 		$reply = "در صورت تمایل ❌ لغو ارتباط فعلی انتخاب کنید";
 	
 		// Create option for the custom keyboard. Array of array string
@@ -97,7 +95,6 @@ if(!is_null($text) && !is_null($chat_id)){
 		$telegram->sendMessage($content);
 }		
 else if ($text == "💻 پنل سینا" ) {
-
 		$option = array( array("❌ لغو سیناگو" , "🖱 منوی اصلی"), array("🔴 وضعیت آنلاین/آفلاین"));
 	// Get the keyboard
 		$keyb = $telegram->buildKeyBoard($option, $onetime=true, $resize=true, $selective=true);
@@ -108,10 +105,9 @@ else if ($text == "💻 پنل سینا" ) {
 	else if ($text == "🔴 وضعیت آنلاین/آفلاین" ) {
 		$post = [
 				'idUser' => $chat_id
-
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://pool.iranh.ir/sina_online.php");
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/sina_online.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -127,10 +123,9 @@ else if ($text == "💻 پنل سینا" ) {
 	else if ($text == "❌ لغو ارتباط فعلی" || $text == "/laghv") {
 		$post = [
 				'idUser' => $chat_id
-
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://pool.iranh.ir/laghv.php");
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/laghv.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -149,10 +144,9 @@ else if ($text == "💻 پنل سینا" ) {
 			
 			$post = [
 				'idUser' => $chat_id
-
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://pool.iranh.ir/send_msg.php");
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/send_msg.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -163,18 +157,15 @@ else if ($text == "💻 پنل سینا" ) {
  
 			$content = array('chat_id' => $server_output, 'text' => $text  );
 			$telegram->sendMessage($content);
-
 		/*	if (strpos( $server_output,"id_sina")){
 	
 			$json = $server_output;
 			$result = var_dump(json_decode($json, true));
 			$obj = json_decode( $server_output);
-
 			$content = array('chat_id' => '233135729', 'text' =>  "1ایدی کاربر\n" );
 			$telegram->sendMessage($content);
 			
 			if (strpos( $server_output,"id_sina")){
-
 						$content = array('chat_id' => $server_output['Items']['id'], 'text' => $server_output->Items."ایدی سینا \n " . $chat_id . $server_output );
 						$telegram->sendMessage($content);
 				}			
@@ -187,16 +178,13 @@ else if ($text == "💻 پنل سینا" ) {
 				}
 		
 	}*/
-
 }	 
 }
 	
 	if ($callback_query !== null && $callback_query != "") {
 		
 		if ($callback_query['data']=="more"){
-
 			//$testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #2", 'message_id'=> $callback_query["message"]["message_id"]));
-
 			$option = array(array($telegram->buildInlineKeyboardButton("مکانیک", "","sinaQAmachine","")),
 			array($telegram->buildInlineKeyboardButton("برق و الکنترونیک","","sinaQAelectronic","")),
 			array($telegram->buildInlineKeyboardButton("ریاضی","","sinaQAmath","")),
@@ -205,18 +193,14 @@ else if ($text == "💻 پنل سینا" ) {
 			array($telegram->buildInlineKeyboardButton("کشاورزی","","sinaQAagri","")),
 			array($telegram->buildInlineKeyboardButton("◀ برگشت ","","back",""))  );
 			$keyb = $telegram->buildInlineKeyBoard($option);
-
 			$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
-
 			/*$reply = "Callback data value: ".json_encode($telegram->Callback_Query());
 			$reply = $reply . json_encode($testEdit);
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>$reply );
 			$telegram->sendMessage($content);*/
 		}
 		if ($callback_query['data']=="back"){
-
 			//$testEdit = $telegram->editMessageText(array('chat_id' =>$telegram->Callback_ChatID(), 'text' => "از لیست زیر لطفاً موضوع که به سوال شما نزدیکتر می باشد را انتخاب کنید #1", 'message_id'=> $callback_query["message"]["message_id"]));
-
 			$option = array(array($telegram->buildInlineKeyboardButton("مشاوره حقوقی", "","sinaQAhoghogh","")),
 			array($telegram->buildInlineKeyboardButton("مشاوره کمک آموزشی","","sinaQAtahsili","")),
 			array($telegram->buildInlineKeyboardButton("مهندسی کامپیوتر","","sinaQAcom","")),
@@ -226,9 +210,7 @@ else if ($text == "💻 پنل سینا" ) {
 			array($telegram->buildInlineKeyboardButton("بیشتر..","",$callback_data="more",""))  );
 			
 			$keyb = $telegram->buildInlineKeyBoard($option);
-
 			$testEdit = $telegram->editMessageReplyMarkup(array('chat_id' =>$telegram->Callback_ChatID(),'message_id'=> $callback_query["message"]["message_id"] , 'reply_markup' => $keyb));
-
 		}
 		
 		if (strpos($callback_query['data'],"reg")){
@@ -239,7 +221,7 @@ else if ($text == "💻 پنل سینا" ) {
 				'first_name' =>  $callback_query['from']['first_name']
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://pool.iranh.ir/addsina.php");
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/addsina.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -249,7 +231,6 @@ else if ($text == "💻 پنل سینا" ) {
 			
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"" . $server_output );
 			$telegram->sendMessage($content);
-
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' =>"💻 پنل سینا");
 			$telegram->sendMessage($content);
 			
@@ -263,21 +244,17 @@ else if ($text == "💻 پنل سینا" ) {
 				'first_name' =>  $callback_query['from']['first_name']
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://pool.iranh.ir/get_sina.php");
+			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/get_sina.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$server_output = curl_exec ($ch);
 			curl_close ($ch);
-
 			$content = array('chat_id' => $telegram->Callback_ChatID(), 'text' => $server_output  );
 			$telegram->sendMessage($content);
-
 		}
-
 		//$content = array('callback_query_id' => $telegram->Callback_ID(), 'text' => $reply, 'show_alert' => true);
 		//$telegram->answerCallbackQuery($content);   
 	}
-
 ?>
