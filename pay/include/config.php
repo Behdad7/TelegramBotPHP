@@ -1,9 +1,9 @@
 <?php
 
 	//DATABASE
-	$db_name='xxxxxx';
-	$db_user='xxxxxx';
-	$db_pass='xxxxxx';
+	$db_name='parpero1_ibnSinaPay';
+	$db_user='parpero1_sina';
+	$db_pass='7f@rvardin';
 	
 	$cn=mysql_connect('localhost',$db_user,$db_pass);
 	
