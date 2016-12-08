@@ -1,11 +1,11 @@
 <?php
 
 	//DATABASE
-	$db_name='parpero1_ibnSinaPay';
-	$db_user='parpero1_sina';
-	$db_pass='7f@rvardin';
+	$db_name='d8uafk8v93apgk';
+	$db_user='uibgrlfkadyofb';
+	$db_pass='o9pdrpe_9PDkjUZigoNsuPfc7e';
 	
-	$cn=mysql_connect('localhost',$db_user,$db_pass);
+	$cn=mysql_connect('ec2-107-21-248-129.compute-1.amazonaws.com',$db_user,$db_pass);
 	
 	if ($cn){
 		mysql_select_db($db_name,$cn);
