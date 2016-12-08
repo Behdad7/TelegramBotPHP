@@ -111,7 +111,7 @@ else if ($text == "💻 پنل سینا" ) {
 
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/sina_online.php");
+			curl_setopt($ch, CURLOPT_URL,"https://pool.iranh.ir/sina_online.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -130,7 +130,7 @@ else if ($text == "💻 پنل سینا" ) {
 
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/laghv.php");
+			curl_setopt($ch, CURLOPT_URL,"https://pool.iranh.ir/laghv.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -152,7 +152,7 @@ else if ($text == "💻 پنل سینا" ) {
 
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/send_msg.php");
+			curl_setopt($ch, CURLOPT_URL,"https://pool.iranh.ir/send_msg.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -239,7 +239,7 @@ else if ($text == "💻 پنل سینا" ) {
 				'first_name' =>  $callback_query['from']['first_name']
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/addsina.php");
+			curl_setopt($ch, CURLOPT_URL,"https://pool.iranh.ir/addsina.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
@@ -263,7 +263,7 @@ else if ($text == "💻 پنل سینا" ) {
 				'first_name' =>  $callback_query['from']['first_name']
 			];
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL,"http://ibnsina.srv.parperook.ir/get_sina.php");
+			curl_setopt($ch, CURLOPT_URL,"https://pool.iranh.ir/get_sina.php");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post); 
 			// receive server response ...
